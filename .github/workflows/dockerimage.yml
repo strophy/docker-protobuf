@@ -30,7 +30,7 @@ jobs:
         image: tonistiigi/binfmt:latest
 
     - name: Docker meta
-      id: meta
+      id: docker_meta
       uses: docker/metadata-action@v3
       with:
         images: strophy/protoc
