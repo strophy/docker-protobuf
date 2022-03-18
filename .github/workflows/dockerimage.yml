@@ -23,7 +23,7 @@ jobs:
       with:
         images: strophy/protoc
         tags: |
-          type=raw,value=development,enable=${{ github.ref == 'refs/heads/main') }}
+          type=raw,value=development,enable=${{ github.ref == 'refs/heads/main' }}
           type=semver,pattern={{version}}
           type=semver,pattern={{major}}.{{minor}}
           type=semver,pattern={{major}}
@@ -78,4 +78,3 @@ jobs:
           SWIFT_VERSION=${{ env.SWIFT_VERSION }}
           TS_PROTOC_GEN_VERSION=${{ env.TS_PROTOC_GEN_VERSION }}
           UPX_VERSION=${{ env.UPX_VERSION }}
-          
