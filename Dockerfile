@@ -32,8 +32,8 @@ ARG PROTOBUF_C_VERSION
 RUN mkdir -p /protobuf-c && \
     curl -sSL https://api.github.com/repos/protobuf-c/protobuf-c/tarball/v${PROTOBUF_C_VERSION} | tar xz --strip 1 -C /protobuf-c && \
     cd /protobuf-c && \
-    export LD_LIBRARY_PATH=/usr/lib:/usr/lib64 && \
-    export PKG_CONFIG_PATH=/usr/lib64/pkgconfig && \
+    export LD_LIBRARY_PATH=/usr/lib && \
+    export PKG_CONFIG_PATH=/usr/lib/pkgconfig && \
     ./autogen.sh && \
     ./configure --prefix=/usr && \
     make && make install DESTDIR=/out
@@ -45,7 +45,7 @@ RUN mkdir -p /grpc-java && \
     g++ \
         -I. -I/usr/include \
         compiler/src/java_plugin/cpp/*.cpp \
-        -L/usr/lib64 \
+        -L/usr/lib \
         -lprotoc -lprotobuf -lpthread --std=c++0x -s \
         -o protoc-gen-grpc-java && \
     install -Ds protoc-gen-grpc-java /out/usr/bin/protoc-gen-grpc-java
