@@ -250,8 +250,10 @@ RUN upx --lzma $(find /out/usr/bin/ \
         -not -name 'grpc_php_plugin' \
         -not -name 'grpc_ruby_plugin' \
         -not -name 'grpc_python_plugin' \
+        -not -name 'grpc_objective_c_plugin' \
         -or -name 'protoc-gen-*' \
         -not -name 'protoc-gen-dart' \
+        -not -name 'protoc-gen-grpc-java' \
     )
 RUN find /out -name "*.a" -delete -or -name "*.la" -delete
 
