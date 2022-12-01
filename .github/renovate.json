@@ -23,15 +23,33 @@
     },
     {
       "fileMatch": ["^deps\\.list$"],
-      "matchStrings": ["NODE_VERSION=(?<currentValue>.*?)\\n"],
-      "depNameTemplate": "node",
-      "datasourceTemplate": "node"
+      "matchStrings": ["GO_VERSION=(?<currentValue>.*?)\\n"],
+      "depNameTemplate": "golang",
+      "datasourceTemplate": "docker"
+    },
+    {
+      "fileMatch": ["^deps\\.list$"],
+      "matchStrings": ["GOOGLE_API_VERSION=(?<currentValue>.*?)\\n"],
+      "depNameTemplate": "golang",
+      "datasourceTemplate": "docker"
     },
     {
       "fileMatch": ["^deps\\.list$"],
       "matchStrings": ["GRPC_GATEWAY_VERSION=(?<currentValue>.*?)\\n"],
       "depNameTemplate": "grpc-ecosystem/grpc-gateway",
       "datasourceTemplate": "github-releases"
-    }
+    },
+    {
+      "fileMatch": ["^deps\\.list$"],
+      "matchStrings": ["GRPC_RUST_VERSION=(?<currentValue>.*?)\\n"],
+      "depNameTemplate": "stepancheg/grpc-rust",
+      "datasourceTemplate": "github-tags"
+    },
+    {
+      "fileMatch": ["^deps\\.list$"],
+      "matchStrings": ["NODE_VERSION=(?<currentValue>.*?)\\n"],
+      "depNameTemplate": "node",
+      "datasourceTemplate": "node"
+    },
   ]
 }
