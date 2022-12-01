@@ -11,11 +11,10 @@
   "regexManagers": [
     {
       "fileMatch": ["^deps\\.list$"],
-      "matchStringsStrategy": "any",
       "matchStrings": ["NODE_VERSION=(?<currentValue>.*?)\\n"],
       "depNameTemplate": "node",
-      "datasourceTemplate": "node",
-      "versioningTemplate": "node"
+      "datasourceTemplate": "node"
+    },
     }
   ]
 }
