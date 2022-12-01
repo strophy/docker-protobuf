@@ -229,7 +229,7 @@ RUN xx-verify /out/usr/bin/protoc-gen-rust
 FROM --platform=$BUILDPLATFORM rust_target as grpc_rust
 RUN mkdir -p /grpc-rust
 ARG GRPC_RUST_VERSION
-RUN curl -sSL https://api.github.com/repos/stepancheg/grpc-rust/tarball/v${GRPC_RUST_VERSION} | tar xz --strip 1 -C /grpc-rust
+RUN curl -sSL https://api.github.com/repos/stepancheg/grpc-rust/tarball/${GRPC_RUST_VERSION} | tar xz --strip 1 -C /grpc-rust
 WORKDIR /grpc-rust/grpc-compiler
 RUN --mount=type=cache,target=/root/.cargo/git/db \
     --mount=type=cache,target=/root/.cargo/registry/cache \

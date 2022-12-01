@@ -47,9 +47,28 @@
     },
     {
       "fileMatch": ["^deps\\.list$"],
+      "matchStrings": ["GRPC_SWIFT_VERSION=(?<currentValue>.*?)\\n"],
+      "depNameTemplate": "grpc/grpc-swift",
+      "datasourceTemplate": "github-releases"
+    },
+    {
+      "fileMatch": ["^deps\\.list$"],
+      "matchStrings": ["GRPC_WEB_VERSION=(?<currentValue>.*?)\\n"],
+      "depNameTemplate": "grpc/grpc-web",
+      "datasourceTemplate": "github-releases"
+    },
+    {
+      "fileMatch": ["^deps\\.list$"],
       "matchStrings": ["NODE_VERSION=(?<currentValue>.*?)\\n"],
       "depNameTemplate": "node",
-      "datasourceTemplate": "node"
+      "datasourceTemplate": "docker"
+    },
+    {
+      "fileMatch": ["^deps\\.list$"],
+      "matchStrings": ["PROTOC_GEN_DART_VERSION=(?<currentValue>.*?)\\n"],
+      "depNameTemplate": "google/protobuf.dart",
+      "datasourceTemplate": "github-tags",
+      "versioningTemplate": "regex:^protoc_plugin-v(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)$"
     }
   ]
 }
