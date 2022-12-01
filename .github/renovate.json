@@ -23,7 +23,7 @@
     },
     {
       "fileMatch": ["^deps\\.list$"],
-      "matchStrings": ["GO_VERSION=(?<currentValue>.*?)\\n"],
+      "matchStrings": ["^GO_VERSION=(?<currentValue>.*?)\\n"],
       "depNameTemplate": "golang",
       "datasourceTemplate": "docker"
     },
