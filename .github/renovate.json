@@ -69,6 +69,12 @@
       "depNameTemplate": "google/protobuf.dart",
       "datasourceTemplate": "github-tags",
       "extractVersionTemplate": "^protoc_plugin-v(?<version>.*)$"
+    },
+    {
+      "fileMatch": ["^deps\\.list$"],
+      "matchStrings": ["PROTOC_GEN_DOC_VERSION=(?<currentValue>.*?)\\n"],
+      "depNameTemplate": "pseudomuto/protoc-gen-doc",
+      "datasourceTemplate": "github-releases"
     }
   ]
 }
