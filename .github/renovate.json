@@ -68,7 +68,7 @@
       "matchStrings": ["PROTOC_GEN_DART_VERSION=(?<currentValue>.*?)\\n"],
       "depNameTemplate": "google/protobuf.dart",
       "datasourceTemplate": "github-tags",
-      "versioningTemplate": "regex:^protoc_plugin-v(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)$"
+      "extractVersionTemplate": "^protoc_plugin-v(?<version>.*)$"
     }
   ]
 }
