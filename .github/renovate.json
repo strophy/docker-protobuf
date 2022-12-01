@@ -19,7 +19,7 @@
       "fileMatch": ["^deps\\.list$"],
       "matchStrings": ["DART_VERSION=(?<currentValue>.*?)\\n"],
       "depNameTemplate": "dart",
-      "datasourceTemplate": "dart"
+      "datasourceTemplate": "docker"
     },
     {
       "fileMatch": ["^deps\\.list$"],
