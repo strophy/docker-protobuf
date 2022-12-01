@@ -162,7 +162,7 @@ RUN xx-verify /out/usr/bin/protoc-gen-gogql
 FROM --platform=$BUILDPLATFORM go_host as protoc_gen_validate
 ARG PROTOC_GEN_VALIDATE_VERSION
 RUN mkdir -p ${GOPATH}/src/github.com/bufbuild/protoc-gen-validate
-RUN curl -sSL https://api.github.com/repos/bufbuild/protoc-gen-validate/tarball/v${PROTOC_GEN_VALIDATE_VERSION} | tar xz --strip 1 -C ${GOPATH}/src/github.com/bufbuild/protoc-gen-validate
+RUN curl -sSL https://api.github.com/repos/bufbuild/protoc-gen-validate/tarball/${PROTOC_GEN_VALIDATE_VERSION} | tar xz --strip 1 -C ${GOPATH}/src/github.com/bufbuild/protoc-gen-validate
 WORKDIR ${GOPATH}/src/github.com/bufbuild/protoc-gen-validate
 RUN go mod download
 ARG TARGETPLATFORM
@@ -214,7 +214,7 @@ RUN apk add --no-cache \
 FROM --platform=$BUILDPLATFORM rust_target as protoc_gen_rust
 RUN mkdir -p /rust-protobuf
 ARG PROTOC_GEN_RUST_VERSION
-RUN curl -sSL https://api.github.com/repos/stepancheg/rust-protobuf/tarball/v${PROTOC_GEN_RUST_VERSION} | tar xz --strip 1 -C /rust-protobuf
+RUN curl -sSL https://api.github.com/repos/stepancheg/rust-protobuf/tarball/${PROTOC_GEN_RUST_VERSION} | tar xz --strip 1 -C /rust-protobuf
 WORKDIR /rust-protobuf/protobuf-codegen
 RUN --mount=type=cache,target=/root/.cargo/git/db \
     --mount=type=cache,target=/root/.cargo/registry/cache \
@@ -305,7 +305,7 @@ RUN install -D ./google/api/httpbody.proto /out/usr/include/google/api/httpbody.
 FROM --platform=$BUILDPLATFORM alpine_host as protoc_gen_lint
 RUN mkdir -p /protoc-gen-lint-out
 ARG TARGETOS TARGETARCH PROTOC_GEN_LINT_VERSION
-RUN curl -sSLO https://github.com/ckaznocha/protoc-gen-lint/releases/download/v${PROTOC_GEN_LINT_VERSION}/protoc-gen-lint_${TARGETOS}_${TARGETARCH}.zip
+RUN curl -sSLO https://github.com/ckaznocha/protoc-gen-lint/releases/download/${PROTOC_GEN_LINT_VERSION}/protoc-gen-lint_${TARGETOS}_${TARGETARCH}.zip
 WORKDIR /protoc-gen-lint-out
 RUN unzip -q /protoc-gen-lint_${TARGETOS}_${TARGETARCH}.zip
 RUN install -D /protoc-gen-lint-out/protoc-gen-lint /out/usr/bin/protoc-gen-lint
@@ -339,7 +339,7 @@ RUN install -D /dart-protobuf/protoc_plugin/protoc_plugin /out/usr/bin/protoc-ge
 FROM --platform=$BUILDPLATFORM alpine_host as upx
 RUN mkdir -p /upx
 ARG BUILDARCH BUILDOS UPX_VERSION
-RUN if ! [ "${TARGETARCH}" = "arm64" ]; then curl -sSL https://github.com/upx/upx/releases/download/v${UPX_VERSION}/upx-${UPX_VERSION}-${BUILDARCH}_${BUILDOS}.tar.xz | tar xJ --strip 1 -C /upx; fi
+RUN if ! [ "${TARGETARCH}" = "arm64" ]; then curl -sSL https://github.com/upx/upx/releases/download/${UPX_VERSION}/upx-${UPX_VERSION}-${BUILDARCH}_${BUILDOS}.tar.xz | tar xJ --strip 1 -C /upx; fi
 RUN if ! [ "${TARGETARCH}" = "arm64" ]; then install -D /upx/upx /usr/local/bin/upx; fi
 COPY --from=googleapis /out/ /out/
 COPY --from=grpc_gateway /out/ /out/

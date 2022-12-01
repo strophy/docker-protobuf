@@ -123,6 +123,49 @@
       "matchStrings": ["PROTOC_GEN_JSONSCHEMA_VERSION=(?<currentValue>.*?)\\n"],
       "depNameTemplate": "chrusty/protoc-gen-jsonschema",
       "datasourceTemplate": "github-releases"
+    },
+    {
+      "fileMatch": ["^deps\\.list$"],
+      "matchStrings": ["PROTOC_GEN_LINT_VERSION=(?<currentValue>.*?)\\n"],
+      "depNameTemplate": "ckaznocha/protoc-gen-lint",
+      "datasourceTemplate": "github-releases"
+    },
+    {
+      "fileMatch": ["^deps\\.list$"],
+      "matchStrings": ["PROTOC_GEN_RUST_VERSION=(?<currentValue>.*?)\\n"],
+      "depNameTemplate": "stepancheg/rust-protobuf",
+      "datasourceTemplate": "github-tags"
+    },
+    {
+      "fileMatch": ["^deps\\.list$"],
+      "matchStrings": ["PROTOC_GEN_TS_VERSION=(?<currentValue>.*?)\\n"],
+      "depNameTemplate": "ts-protoc-gen",
+      "datasourceTemplate": "npm"
+    },
+    {
+      "fileMatch": ["^deps\\.list$"],
+      "matchStrings": ["PROTOC_GEN_VALIDATE_VERSION=(?<currentValue>.*?)\\n"],
+      "depNameTemplate": "bufbuild/protoc-gen-validate",
+      "datasourceTemplate": "github-releases"
+    },
+    {
+      "fileMatch": ["^deps\\.list$"],
+      "matchStrings": ["^RUST_VERSION=(?<currentValue>.*?)\\n"],
+      "depNameTemplate": "rust",
+      "datasourceTemplate": "docker"
+    },
+    {
+      "fileMatch": ["^deps\\.list$"],
+      "matchStrings": ["PROTOC_GEN_DART_VERSION=(?<currentValue>.*?)\\n"],
+      "depNameTemplate": "swift",
+      "datasourceTemplate": "docker",
+      "extractVersionTemplate": "^(?<version>.*)-focal$"
+    },
+    {
+      "fileMatch": ["^deps\\.list$"],
+      "matchStrings": ["UPX_VERSION=(?<currentValue>.*?)\\n"],
+      "depNameTemplate": "upx/upx",
+      "datasourceTemplate": "github-releases"
     }
   ]
 }
