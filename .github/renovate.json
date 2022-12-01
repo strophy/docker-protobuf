@@ -17,6 +17,12 @@
     },
     {
       "fileMatch": ["^deps\\.list$"],
+      "matchStrings": ["DART_VERSION=(?<currentValue>.*?)\\n"],
+      "depNameTemplate": "dart",
+      "datasourceTemplate": "dart"
+    },
+    {
+      "fileMatch": ["^deps\\.list$"],
       "matchStrings": ["NODE_VERSION=(?<currentValue>.*?)\\n"],
       "depNameTemplate": "node",
       "datasourceTemplate": "node"
