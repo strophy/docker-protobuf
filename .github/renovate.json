@@ -25,7 +25,8 @@
       "fileMatch": ["^deps\\.list$"],
       "matchStrings": ["^GO_VERSION=(?<currentValue>.*?)\\n"],
       "depNameTemplate": "golang",
-      "datasourceTemplate": "docker"
+      "datasourceTemplate": "docker",
+      "extractVersionTemplate": "^(?<version>.*)-alpine$"
     },
     {
       "fileMatch": ["^deps\\.list$"],
@@ -152,7 +153,8 @@
       "fileMatch": ["^deps\\.list$"],
       "matchStrings": ["^RUST_VERSION=(?<currentValue>.*?)\\n"],
       "depNameTemplate": "rust",
-      "datasourceTemplate": "docker"
+      "datasourceTemplate": "docker",
+      "extractVersionTemplate": "^(?<version>.*)-alpine$"
     },
     {
       "fileMatch": ["^deps\\.list$"],

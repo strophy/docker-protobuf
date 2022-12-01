@@ -11,7 +11,7 @@ ARG SWIFT_VERSION
 FROM --platform=$BUILDPLATFORM tonistiigi/xx:master AS xx
 
 
-FROM --platform=$BUILDPLATFORM golang:${GO_VERSION}-alpine${ALPINE_VERSION} as go_host
+FROM --platform=$BUILDPLATFORM golang:${GO_VERSION}-alpine as go_host
 COPY --from=xx / /
 WORKDIR /
 RUN mkdir -p /out
@@ -200,7 +200,7 @@ RUN make -j$(nproc) install-plugin
 RUN install -Ds /usr/local/bin/protoc-gen-grpc-web /out/usr/bin/protoc-gen-grpc-web
 
 
-FROM --platform=$BUILDPLATFORM rust:${RUST_VERSION}-alpine${ALPINE_VERSION} as rust_target
+FROM --platform=$BUILDPLATFORM rust:${RUST_VERSION}-alpine as rust_target
 COPY --from=xx / /
 WORKDIR /
 RUN mkdir -p /out
