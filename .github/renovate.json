@@ -75,6 +75,12 @@
       "matchStrings": ["PROTOC_GEN_DOC_VERSION=(?<currentValue>.*?)\\n"],
       "depNameTemplate": "pseudomuto/protoc-gen-doc",
       "datasourceTemplate": "github-releases"
+    },
+    {
+      "fileMatch": ["^deps\\.list$"],
+      "matchStrings": ["PROTOC_GEN_GO_GRPC_VERSION=(?<currentValue>.*?)\\n"],
+      "depNameTemplate": "grpc/grpc-go",
+      "datasourceTemplate": "github-releases"
     }
   ]
 }
