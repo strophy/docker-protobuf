@@ -81,6 +81,24 @@
       "matchStrings": ["PROTOC_GEN_GO_GRPC_VERSION=(?<currentValue>.*?)\\n"],
       "depNameTemplate": "grpc/grpc-go",
       "datasourceTemplate": "github-releases"
+    },
+    {
+      "fileMatch": ["^deps\\.list$"],
+      "matchStrings": ["PROTOC_GEN_GO_VERSION=(?<currentValue>.*?)\\n"],
+      "depNameTemplate": "protocolbuffers/protobuf-go",
+      "datasourceTemplate": "github-releases"
+    },
+    {
+      "fileMatch": ["^deps\\.list$"],
+      "matchStrings": ["PROTOC_GEN_GOGO_VERSION=(?<currentValue>.*?)\\n"],
+      "depNameTemplate": "gogo/protobuf",
+      "datasourceTemplate": "github-releases"
+    },
+    {
+      "fileMatch": ["^deps\\.list$"],
+      "matchStrings": ["PROTOC_GEN_GORM_VERSION=(?<currentValue>.*?)\\n"],
+      "depNameTemplate": "infobloxopen/protoc-gen-gorm",
+      "datasourceTemplate": "github-releases"
     }
   ]
 }

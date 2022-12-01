@@ -41,7 +41,7 @@ RUN xx-verify /out/usr/bin/protoc-gen-openapiv2
 FROM --platform=$BUILDPLATFORM go_host as protoc_gen_doc
 RUN mkdir -p ${GOPATH}/src/github.com/pseudomuto/protoc-gen-doc
 ARG PROTOC_GEN_DOC_VERSION
-RUN curl -sSL https://api.github.com/repos/pseudomuto/protoc-gen-doc/tarball/v${PROTOC_GEN_DOC_VERSION} | tar xz --strip 1 -C ${GOPATH}/src/github.com/pseudomuto/protoc-gen-doc
+RUN curl -sSL https://api.github.com/repos/pseudomuto/protoc-gen-doc/tarball/${PROTOC_GEN_DOC_VERSION} | tar xz --strip 1 -C ${GOPATH}/src/github.com/pseudomuto/protoc-gen-doc
 WORKDIR ${GOPATH}/src/github.com/pseudomuto/protoc-gen-doc
 RUN go mod download
 ARG TARGETPLATFORM
@@ -54,7 +54,7 @@ RUN xx-verify /out/usr/bin/protoc-gen-doc
 FROM --platform=$BUILDPLATFORM go_host as protoc_gen_go_grpc
 RUN mkdir -p ${GOPATH}/src/github.com/grpc/grpc-go
 ARG PROTOC_GEN_GO_GRPC_VERSION
-RUN curl -sSL https://api.github.com/repos/grpc/grpc-go/tarball/v${PROTOC_GEN_GO_GRPC_VERSION} | tar xz --strip 1 -C ${GOPATH}/src/github.com/grpc/grpc-go
+RUN curl -sSL https://api.github.com/repos/grpc/grpc-go/tarball/${PROTOC_GEN_GO_GRPC_VERSION} | tar xz --strip 1 -C ${GOPATH}/src/github.com/grpc/grpc-go
 WORKDIR ${GOPATH}/src/github.com/grpc/grpc-go/cmd/protoc-gen-go-grpc
 RUN go mod download
 ARG TARGETPLATFORM
@@ -67,7 +67,7 @@ RUN xx-verify /out/usr/bin/protoc-gen-go-grpc
 FROM --platform=$BUILDPLATFORM go_host as protoc_gen_go
 RUN mkdir -p ${GOPATH}/src/google.golang.org/protobuf
 ARG PROTOC_GEN_GO_VERSION
-RUN curl -sSL https://api.github.com/repos/protocolbuffers/protobuf-go/tarball/v${PROTOC_GEN_GO_VERSION} | tar xz --strip 1 -C ${GOPATH}/src/google.golang.org/protobuf
+RUN curl -sSL https://api.github.com/repos/protocolbuffers/protobuf-go/tarball/${PROTOC_GEN_GO_VERSION} | tar xz --strip 1 -C ${GOPATH}/src/google.golang.org/protobuf
 WORKDIR ${GOPATH}/src/google.golang.org/protobuf
 RUN go mod download
 ARG TARGETPLATFORM
@@ -80,7 +80,7 @@ RUN xx-verify /out/usr/bin/protoc-gen-go
 FROM --platform=$BUILDPLATFORM go_host as protoc_gen_gogo
 RUN mkdir -p ${GOPATH}/src/github.com/gogo/protobuf
 ARG PROTOC_GEN_GOGO_VERSION
-RUN curl -sSL https://api.github.com/repos/gogo/protobuf/tarball/v${PROTOC_GEN_GOGO_VERSION} | tar xz --strip 1 -C ${GOPATH}/src/github.com/gogo/protobuf
+RUN curl -sSL https://api.github.com/repos/gogo/protobuf/tarball/${PROTOC_GEN_GOGO_VERSION} | tar xz --strip 1 -C ${GOPATH}/src/github.com/gogo/protobuf
 WORKDIR ${GOPATH}/src/github.com/gogo/protobuf
 RUN go mod download
 ARG TARGETPLATFORM
@@ -115,7 +115,7 @@ RUN xx-verify /out/usr/bin/protoc-gen-gotemplate
 FROM --platform=$BUILDPLATFORM go_host as protoc_gen_gorm
 RUN mkdir -p ${GOPATH}/src/github.com/infobloxopen/protoc-gen-gorm
 ARG PROTOC_GEN_GORM_VERSION
-RUN curl -sSL https://api.github.com/repos/infobloxopen/protoc-gen-gorm/tarball/v${PROTOC_GEN_GORM_VERSION} | tar xz --strip 1 -C ${GOPATH}/src/github.com/infobloxopen/protoc-gen-gorm
+RUN curl -sSL https://api.github.com/repos/infobloxopen/protoc-gen-gorm/tarball/${PROTOC_GEN_GORM_VERSION} | tar xz --strip 1 -C ${GOPATH}/src/github.com/infobloxopen/protoc-gen-gorm
 WORKDIR ${GOPATH}/src/github.com/infobloxopen/protoc-gen-gorm
 RUN mkdir /protoc-gen-gorm-out
 RUN go mod download
