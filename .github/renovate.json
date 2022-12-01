@@ -50,6 +50,6 @@
       "matchStrings": ["NODE_VERSION=(?<currentValue>.*?)\\n"],
       "depNameTemplate": "node",
       "datasourceTemplate": "node"
-    },
+    }
   ]
 }
