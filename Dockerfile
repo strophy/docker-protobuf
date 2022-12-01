@@ -23,7 +23,7 @@ RUN apk add --no-cache \
 FROM --platform=$BUILDPLATFORM go_host as grpc_gateway
 RUN mkdir -p ${GOPATH}/src/github.com/grpc-ecosystem/grpc-gateway
 ARG GRPC_GATEWAY_VERSION
-RUN curl -sSL https://api.github.com/repos/grpc-ecosystem/grpc-gateway/tarball/v${GRPC_GATEWAY_VERSION} | tar xz --strip 1 -C ${GOPATH}/src/github.com/grpc-ecosystem/grpc-gateway
+RUN curl -sSL https://api.github.com/repos/grpc-ecosystem/grpc-gateway/tarball/${GRPC_GATEWAY_VERSION} | tar xz --strip 1 -C ${GOPATH}/src/github.com/grpc-ecosystem/grpc-gateway
 WORKDIR ${GOPATH}/src/github.com/grpc-ecosystem/grpc-gateway
 RUN go mod download
 ARG TARGETPLATFORM
@@ -102,7 +102,7 @@ RUN xx-verify /out/usr/bin/protoc-gen-gogo
 FROM --platform=$BUILDPLATFORM go_host as protoc_gen_gotemplate
 RUN mkdir -p ${GOPATH}/src/github.com/moul/protoc-gen-gotemplate
 ARG PROTOC_GEN_GOTEMPLATE_VERSION
-RUN curl -sSL https://api.github.com/repos/moul/protoc-gen-gotemplate/tarball/v${PROTOC_GEN_GOTEMPLATE_VERSION} | tar xz --strip 1 -C ${GOPATH}/src/github.com/moul/protoc-gen-gotemplate
+RUN curl -sSL https://api.github.com/repos/moul/protoc-gen-gotemplate/tarball/${PROTOC_GEN_GOTEMPLATE_VERSION} | tar xz --strip 1 -C ${GOPATH}/src/github.com/moul/protoc-gen-gotemplate
 WORKDIR ${GOPATH}/src/github.com/moul/protoc-gen-gotemplate
 RUN go mod download
 ARG TARGETPLATFORM
@@ -146,7 +146,7 @@ RUN xx-verify /out/usr/bin/protoc-gen-govalidators
 FROM --platform=$BUILDPLATFORM go_host as protoc_gen_gql
 RUN mkdir -p ${GOPATH}/src/github.com/danielvladco/go-proto-gql
 ARG PROTOC_GEN_GQL_VERSION
-RUN curl -sSL https://api.github.com/repos/danielvladco/go-proto-gql/tarball/v${PROTOC_GEN_GQL_VERSION} | tar xz --strip 1 -C ${GOPATH}/src/github.com/danielvladco/go-proto-gql
+RUN curl -sSL https://api.github.com/repos/danielvladco/go-proto-gql/tarball/${PROTOC_GEN_GQL_VERSION} | tar xz --strip 1 -C ${GOPATH}/src/github.com/danielvladco/go-proto-gql
 WORKDIR ${GOPATH}/src/github.com/danielvladco/go-proto-gql
 RUN go mod download
 ARG TARGETPLATFORM
@@ -329,7 +329,7 @@ RUN apt-get update
 RUN apt-get install -y curl
 RUN mkdir -p /dart-protobuf
 ARG PROTOC_GEN_DART_VERSION
-RUN curl -sSL https://api.github.com/repos/google/protobuf.dart/tarball/protoc_plugin-v${PROTOC_GEN_DART_VERSION} | tar xz --strip 1 -C /dart-protobuf
+RUN curl -sSL https://api.github.com/repos/google/protobuf.dart/tarball/protoc_plugin-${PROTOC_GEN_DART_VERSION} | tar xz --strip 1 -C /dart-protobuf
 WORKDIR /dart-protobuf/protoc_plugin 
 RUN dart pub get
 RUN dart compile exe --verbose bin/protoc_plugin.dart -o protoc_plugin

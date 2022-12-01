@@ -68,7 +68,7 @@
       "matchStrings": ["PROTOC_GEN_DART_VERSION=(?<currentValue>.*?)\\n"],
       "depNameTemplate": "google/protobuf.dart",
       "datasourceTemplate": "github-tags",
-      "extractVersionTemplate": "^protoc_plugin-v(?<version>.*)$"
+      "extractVersionTemplate": "^protoc_plugin-(?<version>.*)$"
     },
     {
       "fileMatch": ["^deps\\.list$"],
@@ -98,6 +98,30 @@
       "fileMatch": ["^deps\\.list$"],
       "matchStrings": ["PROTOC_GEN_GORM_VERSION=(?<currentValue>.*?)\\n"],
       "depNameTemplate": "infobloxopen/protoc-gen-gorm",
+      "datasourceTemplate": "github-releases"
+    },
+    {
+      "fileMatch": ["^deps\\.list$"],
+      "matchStrings": ["PROTOC_GEN_GOTEMPLATE_VERSION=(?<currentValue>.*?)\\n"],
+      "depNameTemplate": "moul/protoc-gen-gotemplate",
+      "datasourceTemplate": "github-releases"
+    },
+    {
+      "fileMatch": ["^deps\\.list$"],
+      "matchStrings": ["PROTOC_GEN_GOVALIDATORS_VERSION=(?<currentValue>.*?)\\n"],
+      "depNameTemplate": "mwitkow/go-proto-validators",
+      "datasourceTemplate": "github-releases"
+    },
+    {
+      "fileMatch": ["^deps\\.list$"],
+      "matchStrings": ["PROTOC_GEN_GQL_VERSION=(?<currentValue>.*?)\\n"],
+      "depNameTemplate": "danielvladco/go-proto-gql",
+      "datasourceTemplate": "github-releases"
+    },
+    {
+      "fileMatch": ["^deps\\.list$"],
+      "matchStrings": ["PROTOC_GEN_JSONSCHEMA_VERSION=(?<currentValue>.*?)\\n"],
+      "depNameTemplate": "chrusty/protoc-gen-jsonschema",
       "datasourceTemplate": "github-releases"
     }
   ]
