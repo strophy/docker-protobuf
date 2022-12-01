@@ -1,0 +1,22 @@
+{
+  "branchPrefix": "test-renovate/",
+  "dryRun": true,
+  "username": "renovate-release",
+  "gitAuthor": "Renovate Bot <bot@renovateapp.com>",
+  "onboarding": false,
+  "platform": "github",
+  "includeForks": true,
+  "repositories": [
+    "strophy/docker-protobuf"
+  ],
+  "regexManagers": [
+    {
+      "fileMatch": ["^deps\\.list$"],
+      "matchStringsStrategy": "any",
+      "matchStrings": ["NODE_VERSION=(?<currentValue>.*?)\\n"],
+      "depNameTemplate": "node",
+      "datasourceTemplate": "node",
+      "versioningTemplate": "node"
+    }
+  ]
+}
