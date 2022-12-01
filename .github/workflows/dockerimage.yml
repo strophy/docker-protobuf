@@ -2,12 +2,12 @@ name: Docker Image
 
 on: 
   workflow_dispatch:
-  push:
-    tags:
-      - '**'
-    branches:
-      - main
-  pull_request:
+  # push:
+  #   tags:
+  #     - '**'
+  #   branches:
+  #     - main
+  # pull_request:
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
