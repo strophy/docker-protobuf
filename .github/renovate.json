@@ -12,8 +12,8 @@
     {
       "fileMatch": ["^deps\\.list$"],
       "matchStrings": ["ALPINE_VERSION=(?<currentValue>.*?)\\n"],
-      "depNameTemplate": "alpine-base",
-      "datasourceTemplate": "repology"
+      "depNameTemplate": "alpine",
+      "datasourceTemplate": "docker"
     },
     {
       "fileMatch": ["^deps\\.list$"],
