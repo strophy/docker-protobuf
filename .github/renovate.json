@@ -1,14 +1,12 @@
 {
   "branchPrefix": "test-renovate/",
-  "dryRun": true,
+  "dryRun": "full",
   "username": "renovate-release",
   "gitAuthor": "Renovate Bot <bot@renovateapp.com>",
   "onboarding": false,
   "platform": "github",
   "includeForks": true,
-  "repositories": [
-    "strophy/docker-protobuf"
-  ],
+  "repositories": ["strophy/docker-protobuf"],
   "regexManagers": [
     {
       "fileMatch": ["^deps\\.list$"],
