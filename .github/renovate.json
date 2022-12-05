@@ -32,7 +32,8 @@
       "fileMatch": ["^deps\\.list$"],
       "matchStrings": ["GOOGLE_API_VERSION=(?<currentValue>.*?)\\n"],
       "depNameTemplate": "googleapis/googleapis",
-      "datasourceTemplate": "git-refs"
+      "datasourceTemplate": "git-refs",
+      "versioningTemplate": "git"
     },
     {
       "fileMatch": ["^deps\\.list$"],
