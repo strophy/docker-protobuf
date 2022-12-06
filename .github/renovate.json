@@ -154,13 +154,15 @@
       "fileMatch": ["^deps\\.list$"],
       "matchStrings": ["^RUST_VERSION=(?<currentValue>.*?)\\n"],
       "depNameTemplate": "rust",
-      "datasourceTemplate": "docker"
+      "datasourceTemplate": "docker",
+      "versioningTemplate": "docker"
     },
     {
       "fileMatch": ["^deps\\.list$"],
       "matchStrings": ["PROTOC_GEN_DART_VERSION=(?<currentValue>.*?)\\n"],
       "depNameTemplate": "swift",
-      "datasourceTemplate": "docker"
+      "datasourceTemplate": "docker",
+      "versioningTemplate": "docker"
     },
     {
       "fileMatch": ["^deps\\.list$"],
