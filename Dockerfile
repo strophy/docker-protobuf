@@ -1,17 +1,17 @@
 # syntax=docker/dockerfile:1.4
 
-ARG ALPINE_VERSION
-ARG DART_VERSION
-ARG GO_VERSION
-ARG NODE_VERSION
-ARG RUST_VERSION
-ARG SWIFT_VERSION
+ARG ALPINE_IMAGE_VERSION
+ARG DART_IMAGE_VERSION
+ARG GO_IMAGE_VERSION
+ARG NODE_IMAGE_VERSION
+ARG RUST_IMAGE_VERSION
+ARG SWIFT_IMAGE_VERSION
 
 
 FROM --platform=$BUILDPLATFORM tonistiigi/xx:master AS xx
 
 
-FROM --platform=$BUILDPLATFORM golang:${GO_VERSION}-alpine as go_host
+FROM --platform=$BUILDPLATFORM golang:${GO_IMAGE_VERSION}-alpine as go_host
 COPY --from=xx / /
 WORKDIR /
 RUN mkdir -p /out
@@ -187,7 +187,7 @@ RUN install -D ./options.proto /out/usr/include/github.com/chrusty/protoc-gen-js
 RUN xx-verify /out/usr/bin/protoc-gen-jsonschema
 
 
-FROM alpine:${ALPINE_VERSION} as grpc_web
+FROM alpine:${ALPINE_IMAGE_VERSION} as grpc_web
 RUN apk add --no-cache \
         build-base \
         curl \
@@ -200,7 +200,7 @@ RUN make -j$(nproc) install-plugin
 RUN install -Ds /usr/local/bin/protoc-gen-grpc-web /out/usr/bin/protoc-gen-grpc-web
 
 
-FROM --platform=$BUILDPLATFORM rust:${RUST_VERSION}-alpine as rust_target
+FROM --platform=$BUILDPLATFORM rust:${RUST_IMAGE_VERSION} as rust_target
 COPY --from=xx / /
 WORKDIR /
 RUN mkdir -p /out
@@ -241,7 +241,7 @@ RUN install -D /grpc-rust/target/$(xx-cargo --print-target)/release/protoc-gen-r
 RUN xx-verify /out/usr/bin/protoc-gen-rust-grpc
 
 
-FROM swift:${SWIFT_VERSION} as grpc_swift
+FROM swift:${SWIFT_IMAGE_VERSION} as grpc_swift
 RUN apt-get update
 RUN apt-get install -y \
         build-essential \
@@ -282,7 +282,7 @@ RUN <<EOF
 EOF
 
 
-FROM --platform=$BUILDPLATFORM alpine:${ALPINE_VERSION} as alpine_host
+FROM --platform=$BUILDPLATFORM alpine:${ALPINE_IMAGE_VERSION} as alpine_host
 COPY --from=xx / /
 WORKDIR /
 RUN mkdir -p /out
@@ -313,7 +313,7 @@ ARG TARGETPLATFORM
 RUN xx-verify /out/usr/bin/protoc-gen-lint
 
 
-FROM node:${NODE_VERSION}-alpine${ALPINE_VERSION} as protoc_gen_ts
+FROM node:${NODE_IMAGE_VERSION} as protoc_gen_ts
 ARG PROTOC_GEN_TS_VERSION
 RUN npm install -g pkg ts-protoc-gen@${PROTOC_GEN_TS_VERSION}
 RUN pkg \
@@ -324,7 +324,7 @@ RUN pkg \
 RUN install -D protoc-gen-ts /out/usr/bin/protoc-gen-ts
 
 
-FROM dart:${DART_VERSION} as protoc_gen_dart
+FROM dart:${DART_IMAGE_VERSION} as protoc_gen_dart
 RUN apt-get update
 RUN apt-get install -y curl
 RUN mkdir -p /dart-protobuf
@@ -370,7 +370,7 @@ EOF
 RUN find /out -name "*.a" -delete -or -name "*.la" -delete
 
 
-FROM alpine:${ALPINE_VERSION}
+FROM alpine:${ALPINE_IMAGE_VERSION}
 LABEL maintainer="Roman Volosatovs <rvolosatovs@riseup.net>"
 COPY --from=upx /out/ /
 COPY --from=protoc_gen_ts /out/ /
