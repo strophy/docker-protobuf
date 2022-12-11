@@ -8,12 +8,6 @@
   "includeForks": true,
   "repositories": ["strophy/docker-protobuf"],
   "enabledManagers": ["regex"],
-  "packageRules": [
-    {
-      "currentValue": "master",
-      "matchDatasources": ["github-tags"]
-    }
-  ],
   "regexManagers": [
     {
       "fileMatch": ["^deps\\.list$"],
@@ -38,7 +32,8 @@
       "fileMatch": ["^deps\\.list$"],
       "matchStrings": ["GOOGLE_API_VERSION=(?<currentDigest>.*?)\\n"],
       "depNameTemplate": "googleapis/googleapis",
-      "datasourceTemplate": "github-tags"
+      "datasourceTemplate": "github-tags",
+      "currentValueTemplate": "master"
     },
     {
       "fileMatch": ["^deps\\.list$"],
