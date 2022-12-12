@@ -37,6 +37,13 @@
     },
     {
       "fileMatch": ["^deps\\.list$"],
+      "matchStrings": ["GOOGLE_API_VERSION=(?<currentDigest>.*?)\\n"],
+      "currentValueTemplate": "master",
+      "depNameTemplate": "https://github.com/googleapis/googleapis",
+      "datasourceTemplate": "git-refs"
+    },
+    {
+      "fileMatch": ["^deps\\.list$"],
       "matchStrings": ["GRPC_GATEWAY_VERSION=(?<currentValue>.*?)\\n"],
       "depNameTemplate": "grpc-ecosystem/grpc-gateway",
       "datasourceTemplate": "github-releases"
