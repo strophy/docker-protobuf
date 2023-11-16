@@ -59,6 +59,9 @@ jobs:
     - name: Load dependency versions
       run: cat deps.list >> $GITHUB_ENV
 
+    - name: Setup tmate session
+      uses: mxschmitt/action-tmate@v3
+
     - name: Build and push Docker image
       uses: docker/build-push-action@v5
       with:
@@ -99,3 +102,7 @@ jobs:
           SWIFT_IMAGE_VERSION=${{ env.SWIFT_IMAGE_VERSION }}
           UPX_VERSION=${{ env.UPX_VERSION }}
           XX_IMAGE_VERSION=${{ env.XX_IMAGE_VERSION }}
+
+    - name: Setup tmate session
+      if: ${{ failure() }}
+      uses: mxschmitt/action-tmate@v3
