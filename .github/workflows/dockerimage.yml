@@ -17,10 +17,13 @@ jobs:
   build:
     runs-on: ubuntu-22.04
     steps:
+    - run: echo $GITHUB_WORKSPACE
+
     - name: Maximize build space
       uses: easimon/maximize-build-space@master
       with:
-        build-mount-path: /home/runner/work
+        build-mount-path: /home/runner/work/_temp/docker
+        root-reserve-mb: 10240
         remove-dotnet: true
         remove-android: true
         remove-haskell: true
@@ -30,7 +33,7 @@ jobs:
     - name: Move Docker data root to work directory
       run: |
         sudo systemctl stop docker
-        sudo mkdir -p /home/runner/work/_temp/docker
+        sudo mkdir -p /home/runner/work/docker-protobuf/docker-protobuf/docker
         sudo sh -c 'printf "{\n  \"exec-opts\": [\n    \"native.cgroupdriver=cgroupfs\"\n  ],\n  \"cgroup-parent\": \"/actions_job\",\n  \"data-root\": \"/home/runner/work/_temp/docker\"\n}\n" > /etc/docker/daemon.json'
         sudo systemctl start docker
 
