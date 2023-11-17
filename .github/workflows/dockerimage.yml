@@ -26,6 +26,14 @@ jobs:
         remove-codeql: true
         remove-docker-images: true
 
+    - name: Move Docker data root to work directory
+      run: |
+        sudo systemctl stop docker
+        sudo mkdir -p /home/runner/work/_temp/docker
+        sudo touch /etc/docker/daemon.json
+        sudo sed -i '1s/{$/{\n  "data-root": "\/home\/runner\/work\/_temp\/docker",/' /etc/docker/daemon.json
+        sudo systemctl start docker
+
     - uses: actions/checkout@v4
 
     - name: Set up Docker Buildx
